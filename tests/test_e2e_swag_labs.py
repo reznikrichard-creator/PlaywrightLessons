@@ -10,7 +10,7 @@ import pytest
 def test_checkout_happy_path(page: Page, username) -> None:
     page.goto("https://www.saucedemo.com/")
     page.locator("[data-test=\"username\"]").click()
-    page.locator("[data-test=\"username\"]").fill("username")
+    page.locator("[data-test=\"username\"]").fill(username)
     page.locator("[data-test=\"password\"]").click()
     page.locator("[data-test=\"password\"]").fill("secret_sauce")
     page.locator("[data-test=\"login-button\"]").click()
