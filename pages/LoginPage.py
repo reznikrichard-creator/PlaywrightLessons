@@ -22,6 +22,7 @@ class LoginPage:
         self.page.goto("/")
 
     def login_standard_user(self):
+        self.open()
         self.username.fill("standard_user")
         self.password.fill("secret_sauce")
         self.login_button.click()

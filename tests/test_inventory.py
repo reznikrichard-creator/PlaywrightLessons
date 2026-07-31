@@ -38,5 +38,5 @@ def test_sort_options(page: Page, options):
 
     inventory_page.sort_products_by(options)
 
-    assert inventory_page .get_selected_sort() == options
+    assert inventory_page.get_selected_sort() == options
 

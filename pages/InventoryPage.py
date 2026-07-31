@@ -1,4 +1,5 @@
 from playwright.sync_api import Page
+from pages.CartPage import CartPage
 
 
 class InventoryPage:
@@ -15,10 +16,27 @@ class InventoryPage:
         self.sort_dropdown = page.locator("[data-test=\"product-sort-container\"]")
         self.sort_options = self.sort_dropdown.locator("option")
 
+        #New cart locators
+        # self.add_to_cart =  page.locator("[data-test=\"add-to-cart-sauce-labs-backpack\"]").click()
+        self.cart_icon = page.locator("[data-test=\"shopping-cart-link\"]")
+
+
+
+
     # Methods (Wrapper)
     def sort_products_by(self, option: str):
         # option is one of: az, za, lohi, hilo
         self.sort_dropdown.select_option(option)
+
+    def go_to_cart(self) -> CartPage:
+        self.cart_icon.click()
+        return CartPage(self.page)
+
+    def add_item_to_cart(self, item):
+        # self.add_item_to_cart().click
+        self.page.locator(f"[data-test=\"add-to-cart-{item}\"]").click()
+        return self
+
 
     # Getters (are used for assertions later.)
     def get_title(self):
