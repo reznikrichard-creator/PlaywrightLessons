@@ -22,7 +22,6 @@ class InventoryPage:
 
 
 
-
     # Methods (Wrapper)
     def sort_products_by(self, option: str):
         # option is one of: az, za, lohi, hilo
