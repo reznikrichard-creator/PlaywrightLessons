@@ -44,16 +44,16 @@ def test_download(page: Page, link: str) -> None:
     assert link in str(download)
 
     
-def test_hidden_ad(page: Page) -> None:
-    page.goto("https://the-internet.herokuapp.com/entry_ad")
-    modal = page.locator("#modal")
-    # Wait for the modal to load
-    assert modal.is_visible()
+# def test_hidden_ad(page: Page) -> None:
+#     page.goto("https://the-internet.herokuapp.com/entry_ad")
+#     modal = page.locator("#modal")
+#     # Wait for the modal to load
+#     assert modal.is_visible()
 
-    page.get_by_text("Close", exact=True).click()
-    modal.wait_for(state="hidden")
+#     page.get_by_text("Close", exact=True).click()
+#     modal.wait_for(state="hidden")
 
-    assert not modal.is_visible()
+#     assert not modal.is_visible()
 
 
 @pytest.mark.parametrize(

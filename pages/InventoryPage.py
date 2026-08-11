@@ -28,7 +28,7 @@ class InventoryPage:
         # option is one of: az, za, lohi, hilo
         self.sort_dropdown.select_option(option)
 
-    def go_to_cart(self) -> CartPage:
+    def open_cart(self) -> CartPage:
         self.cart_icon.click()
         return CartPage(self.page)
 

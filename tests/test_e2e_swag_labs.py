@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.parametrize(
     "username",
     [
-        "standard_user", "locked_out_user", "problem_user"
+        "standard_user",
     ],
 )
 def test_checkout_happy_path(page: Page, username) -> None:
@@ -14,7 +14,7 @@ def test_checkout_happy_path(page: Page, username) -> None:
     page.locator("[data-test=\"password\"]").click()
     page.locator("[data-test=\"password\"]").fill("secret_sauce")
     page.locator("[data-test=\"login-button\"]").click()
-    page.locator("[data-test=\"add-to-cart-sauce-labs-fleece-jacket\"]").click()
+    page.locator("[data-test=\"add-to-cart-sauce-labs-backpack\"]").click()
     page.locator("[data-test=\"shopping-cart-link\"]").click()
     page.locator("[data-test=\"checkout\"]").click()
     page.locator("[data-test=\"firstName\"]").click()

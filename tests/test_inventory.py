@@ -4,17 +4,11 @@ import pytest
 from pages.LoginPage import LoginPage
 from pages.InventoryPage import InventoryPage
 
-def test_sort_dropdown_visible(page: Page):
-    login_page = LoginPage(page)
-    login_page.open()
-    inventory_page = login_page.login_standard_user()
+def test_sort_dropdown_visible(inventory_page: InventoryPage):
 
     assert inventory_page.get_sort_dropdown().is_visible
 
-def test_product_sort(page: Page):
-    login_page = LoginPage(page)
-    login_page.open()
-    inventory_page = login_page.login_standard_user()
+def test_product_sort(inventory_page: InventoryPage):
 
     # inventory_page = InventoryPage(page)
     inventory_page.sort_products_by("za")
@@ -31,10 +25,7 @@ def test_product_sort(page: Page):
     ],
 )    
 
-def test_sort_options(page: Page, options):
-    login_page = LoginPage(page)
-    login_page.open()
-    inventory_page = login_page.login_standard_user()
+def test_sort_options(inventory_page: InventoryPage, options):
 
     inventory_page.sort_products_by(options)
 

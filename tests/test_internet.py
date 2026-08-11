@@ -74,13 +74,13 @@ def test_drag_and_drop(page: Page):
 #     page.locator("#hot-spot").click(button="right")
 #     d_value = dialog.info_value
 
-@pytest.mark.parametrize("link", ["random_data.txt","sample.txt"],)
-def test_download (page: Page, link: str):
-    page.goto("https://the-internet.herokuapp.com/download")
-    with page.expect_download() as download_info:
-        page.get_by_role("link", name=link, exact=True).click()
-    download = download_info.value
-    assert link in str(download)
+# @pytest.mark.parametrize("link", ["random_data.txt","sample.txt"],)
+# def test_download (page: Page, link: str):
+#     page.goto("https://the-internet.herokuapp.com/download")
+#     with page.expect_download() as download_info:
+#         page.get_by_role("link", name=link, exact=True).click()
+#     download = download_info.value
+#     assert link in str(download)
 
 def test_hidden_ad (page: Page):
     page.goto("https://the-internet.herokuapp.com/entry_ad")
