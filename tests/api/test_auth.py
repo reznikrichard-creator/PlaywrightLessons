@@ -1,8 +1,12 @@
 from socket import timeout
 import requests
+import pytest
 # {
 #     "username": "asdsds"
-# }
+# }'
+
+pytestmark = pytest.mark.api
+
 BASE_URL = "https://restful-booker.herokuapp.com"
 
 def test_get_token():
@@ -14,7 +18,7 @@ def test_get_token():
         },
         timeout=10,
     )
-    # print("Status Code:", response.status_code)
+    print("Status Code:", response.status_code)
 
     assert response.status_code == 200
     assert response.json()["token"]
