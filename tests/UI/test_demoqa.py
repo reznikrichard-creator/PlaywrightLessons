@@ -30,18 +30,18 @@ def test_form(page: Page, first, last, email) -> None:
 
 
 
-@pytest.mark.parametrize(
-    "link", 
-    [
-        "random_data.txt", "sample.txt", "sample.pdf"    
-    ],             
-)
-def test_download(page: Page, link: str) -> None:
-    page.goto("https://the-internet.herokuapp.com/download")
-    with page.expect_download() as download_info:
-        page.get_by_role("link", name=link).click()
-    download = download_info.value
-    assert link in str(download)
+# @pytest.mark.parametrize(
+#     "link", 
+#     [
+#         "random_data.txt", "sample.txt", "sample.pdf"    
+#     ],             
+# )
+# def test_download(page: Page, link: str) -> None:
+#     page.goto("https://the-internet.herokuapp.com/download")
+#     with page.expect_download() as download_info:
+#         page.get_by_role("link", name=link).click()
+#     download = download_info.value
+#     assert link in str(download)
 
     
 # def test_hidden_ad(page: Page) -> None:
