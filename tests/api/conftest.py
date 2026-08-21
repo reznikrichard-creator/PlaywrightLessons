@@ -20,8 +20,8 @@ def api_session():
 
 @pytest.fixture(scope="session")
 def auth_token(api_session) -> str:
-    r = requests.post(
-        f"{BASE_URL}/auth",
+    r = api_session.post(
+        f"/auth",
         json={
             "username": "admin",
             "password": "password123"
@@ -38,4 +38,6 @@ def created_booking(booking_client):
     payload = make_booking()
     booking_id = booking_client.create_booking(payload).json()["bookingid"]
     yield booking_id, payload
+
+    booking_client.delete_booking(booking_id)
     
