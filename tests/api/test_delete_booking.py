@@ -2,7 +2,6 @@
 
 from API.booking_client import BookingAPIClient
 from API.builders import make_booking
-from tests.API.conftest import api_session
 
 
 def test_deleted_booking_is_gone(booking_client: BookingAPIClient, created_booking):
